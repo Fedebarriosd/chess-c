@@ -129,7 +129,7 @@ static void draw_pieces_textured(int SQ) {
         Texture2D tex = gPieceTex[idx];
         float scale = scalePad * (float)SQ / (float)((tex.width > tex.height) ? tex.width : tex.height);
         float w = tex.width * scale, h = tex.height * scale;
-        Rectangle src = (Rectangle){0,0,(float)tex.width,(float)tex.height};
+        Rectangle src = (Rectangle){0.5f,0.5f,(float)tex.width - 1.0f,(float)tex.height - 1.0f};
         Rectangle dst = (Rectangle){ x + (SQ - w)*0.5f, y + (SQ - h)*0.5f, w, h };
         DrawTexturePro(tex, src, dst, (Vector2){0,0}, 0.0f, WHITE);
     }
